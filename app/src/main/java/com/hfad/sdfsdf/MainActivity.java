@@ -1,6 +1,7 @@
 package com.hfad.sdfsdf;
 
 
+
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
@@ -10,8 +11,6 @@ import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 import androidx.viewpager.widget.ViewPager;
 import androidx.appcompat.app.AppCompatActivity;
-
-
 
 import com.hfad.sdfsdf.ui.main.SectionsPagerAdapter;
 
@@ -24,6 +23,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+
+
+}
+
+    @Override
+    protected void onStart() {
+        super.onStart();
         setContentView(R.layout.activity_main);
         SectionsPagerAdapter sectionsPagerAdapter = new SectionsPagerAdapter(this, getSupportFragmentManager());
 
@@ -33,6 +40,7 @@ public class MainActivity extends AppCompatActivity {
         TabLayout tabs = findViewById(R.id.tabs);
         tabs.setupWithViewPager(viewPager);
 
+
         int permissionStatus = ContextCompat.checkSelfPermission(this, READ_EXTERNAL_STORAGE);
         int permissionStatus1 = ContextCompat.checkSelfPermission(this, WRITE_EXTERNAL_STORAGE);
 
@@ -40,7 +48,8 @@ public class MainActivity extends AppCompatActivity {
         } else {
             ActivityCompat.requestPermissions(MainActivity.this, new String[]{WRITE_EXTERNAL_STORAGE, READ_EXTERNAL_STORAGE}, 1);
         }
-
     }
+
+
 }
 
